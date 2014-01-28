@@ -1,0 +1,81 @@
+<div style='padding: 5px'>
+<h2 style='text-align: center;' >SWFIntruder Help</h2>
+<h3>Description</h3>
+<p>
+SWFIntruder is a runtime analyser for SWF external movies. 
+It helps to find flaws in Flash using the methodology described in
+<a target='_blank' href='http://www.owasp.org/images/8/8c/OWASPAppSec2007Milan_TestingFlashApplications.ppt'>Testing Flash Applications</a>[1] and in <a target='_blank' href='http://www.owasp.org/images/d/df/SanJose_AppSec2007_DiPaola.ppt'>Finding Vulnerabilities in Flash
+Applications</a>[2].
+</p>
+<h3>Quick and Dirty:</h3>
+<ol style='list-style-type: decimal'>
+  <li style='list-style-type: decimal'>
+  Download the SWF File you want to test to a subdirectory of SWFIntruder.</li>
+  <li style='list-style-type: decimal'>
+  Set the (Full) path to the SWF.</li>
+  <li style='list-style-type: decimal'>
+  Click Load.</li>
+  <li style='list-style-type: decimal'>
+  Select some of the undefined variables (Multiple select are allowed).</li>
+  <li style='list-style-type: decimal'>
+  Go to Menu -> View -> Show Xss Tool.</li>
+  <li style='list-style-type: decimal'>
+  Click play.</li>
+</ol>
+<h3>Recommended Configuration</h3>
+<p>
+<ol style='list-style-type: disc'>
+<li style='list-style-type: disc'> Firefox 2.x [Needed]</li>
+<li style='list-style-type: disc'> FireBug Addon</li>
+<li style='list-style-type: disc'> Flash Player Plugin Ver >= 9 [Needed]</li>
+<li style='list-style-type: disc'> Any Web Server [Needed]</li>
+</ol>
+</p>
+<h3>Persistent Configuration and Layout</h3>
+By using Firefox globalStorage, SWF Intruder saves user's 
+main configuration and layout in order to be retrived everytime
+the browser is launched.
+Specifically, users will have persistance on:
+<ol style='list-style-type: disc'>
+<li style='list-style-type: disc'> User defined attack patterns</li>
+<li style='list-style-type: disc'> Selection of attack patterns</li>
+<li style='list-style-type: disc'> User added undefined parameters</li>
+<li style='list-style-type: disc'> Custom parameters appended to request</li>
+<li style='list-style-type: disc'> Address value of site hosting evil.swf</li>
+<li style='list-style-type: disc'> Some other configuration amenities</li>
+<li style='list-style-type: disc'> Latest 4 urls tested (History helper)</li>
+<li style='list-style-type: disc'> Xss box and Debug box show/hide layout</li>
+</ol>
+</p>
+
+<h3>Known Issues/Bugs</h3>
+<p>
+1. Sometime Firefox crashes. This is due to some problem in Firefox and not in SWF Intruder itself.
+</p>
+<p>
+2. If you use SWF Intruder under linux, the flash plugin eats a lot of memory.
+</p>
+<p>
+3.There's a pattern for which __resolve does not work:
+<blockquote><pre style='font-size: 8pt;font-weight: bold;'>
+frame 1 {
+  static.main(this)
+}</pre>
+</blockquote>
+where 'this' is _root but not explicitly set.
+</p>
+<h3>Warning</h3>
+Letting browser run untrusted Flash movies, could result 
+in an attack to internal network and other malicious activities 
+against the tester.<br/>
+Set the test environment as strict as possible.
+</div>
+<h3>References</h3>
+<p>
+[1] Testing Flash Applications, <i>Stefano Di Paola</i>, Owasp Appsec 2007, 17th May 2007, Milan (Italy) <br>
+[2] Finding Vulnerabilities in Flash Applications, <i>Stefano Di Paola</i>, Owasp Appsec 2007, 15th November 2007, San Jose CA (USA) <br>
+</p>
+<div style='text-align: center; width: 100%;' ><span onclick='hideInfoDiv()' style='text-align: center; width: 100%;cursor: pointer;text-decoration: underline;font-weight: bold;' class='submit'>Close</span>
+</div>
+
+</div>

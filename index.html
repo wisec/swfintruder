@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<!-- saved from url=(0014)about:internet -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>SWF Intruder</title>
+
+  <script type="text/javascript" language="javascript" src="js/config.js"   ></script>
+  <script type="text/javascript" language="javascript" src="js/json.js"   ></script>
+  <script type="text/javascript" language="javascript" src="js/gui.js"      ></script>
+  <script type="text/javascript" language="javascript" src="js/configControl.js"   ></script>
+  <script type="text/javascript" language="javascript" src="js/utils.js"   ></script>
+  <script type="text/javascript" language="javascript" src="js/control.js"  ></script>
+  <script type="text/javascript" language="javascript" src="js/globalStorage.js"   ></script>
+  <script type="text/javascript" language="javascript" src="js/mktree.js"   ></script>
+  <script type="text/javascript" language="javascript" src="js/swfobject.js"></script>
+<!--  <script> var featureList = ["tree","dock","slidebar"];</script>
+  <script type="text/javascript" src="js/oat/oat/loader.js"></script>
+  <link rel="stylesheet" href="js/oat/demo/style.css" type="text/css" />
+  -->
+  <link rel="stylesheet" href="css/mktree.css"  type="text/css" />
+  <link rel="stylesheet" href="css/menus.css"   type="text/css" />
+  <link rel="stylesheet" href="css/default.css" type="text/css" />
+
+</head>
+<body onload='init();setTimeout(goSwf,1000)'>
+<div style='text-align: left;float:left'>
+<img style='top:0px;right: 0px;margin-left: 10px;' src='images/swfIntruder.png'/>
+</div>
+<div style='right 0px;float:right;'>
+ <img style='top:0px;margin-right: 10px;' src='images/owasp.gif'/>
+<img style='top:0px;margin-right: 10px;' src='images/mind_logo_nerotransp.png'/>
+</div>
+<div class="header" >
+<!-- <span onclick='toggleVisibility("SwfInfo")?this.innerHTML="Hide All":this.innerHTML="Show All"' class='item'>Hide All</span>
+ <span onclick='toggleVisibility("Xssdiv")?this.innerHTML="Hide Xss":this.innerHTML="Show Xss"' class='item'>Show Xss</span>
+ <span onclick='toggleVisibility("swfform")' class='item'>Load New Swf</span>
+ <span class='item' >
+ <span onclick='toggleVisibility("search")' >Search</span><span id='search' style='display: none'>
+ <input type='text'  ><input type='button' value='search'></span></span>
+ <span onclick='toggleVisibility("debug")?this.innerHTML="Hide Debug":this.innerHTML="Show Debug"' class='item'>Debug</span>
+ <span onclick='showConfigDiv()' class='item'></span> -->
+
+<div class="nav">
+<ul>
+  <li class="button"><div class="parent one">
+  <span class='fakeanchor' >View</span>
+  <div class="dropdown">
+      <ul>
+		  <li style="z-index: 10;">
+		  <span class='fakeanchor' onclick='if(toggleVisibility("Xssdiv")){showXssDiv=true;this.innerHTML="Hide Xss";setWidth("snapshot","382px")}else{showXssDiv=false;this.innerHTML="Show Xss";setWidth("snapshot","564px");};setItem("xssLayout",showXssDiv);' >Xss Tool</span>
+
+		  </li>
+		  <li style="z-index: 9;">
+		  <span class='fakeanchor' onclick='(showDebugDiv=toggleVisibility("debug"))?this.innerHTML="Hide Debug":this.innerHTML="Show Debug";setItem("debugLayout",showDebugDiv)' >Debug</span>
+
+		  </li>
+		  <!-- <li style="z-index: 800;">
+		  <a href="#" onclick='toggleVisibility("swfform")' >Load New Swf</a>
+
+		  </li> -->
+		  <li style="z-index: 800;">
+		  <span class='fakeanchor' onclick='toggleVisibility("SwfInfo")?this.innerHTML="Hide All":this.innerHTML="Show All"' >Hide All</span>
+
+		  </li>
+    </ul>
+  </div>
+  </div>
+  </li>
+  <!-- <li class="button"><div class="parent two">
+  <span onclick='if(toggleVisibility("Xssdiv")){this.innerHTML="Hide Xss";setWidth("snapshot","380px")}else{this.innerHTML="Show Xss";setWidth("snapshot","565px")}' >Show Xss</span>
+  </div>
+  </li>
+  <li class="button"><div class="parent three">
+  <span onclick='toggleVisibility("swfform")' >Load New Swf</span>
+  </div>
+  </li>
+  <li class="button"><div class="parent four">
+  <span onclick='toggleVisibility("debug")?this.innerHTML="Hide Debug":this.innerHTML="Show Debug"' >Debug</span>
+  </div>
+  </li> -->
+  <li class="button"><div class="parent one">
+	  <span  class='fakeanchor' >Config</span>
+	  <div class="dropdown">
+	      <ul>
+			  <li style="z-index: 10;">
+			  <span class='fakeanchor'  onclick='showAttackConfigDiv()' >Attack Patterns</span>
+
+			  </li>
+			  <li style="z-index: 9;">
+			  <span class='fakeanchor'  onclick='showVariableConfigDiv()'>Variables</span>
+
+			  </li>
+			  <li style="z-index: 8;">
+			  <span class='fakeanchor'  onclick='showGeneralConfigDiv()'>General</span>
+			  </li>
+			  <li style="z-index: 7;">
+			  <span class='fakeanchor'  onclick='initializeConfig()'>Reload</span>
+
+			  </li>
+
+	    </ul>
+	  </div>
+     </div>
+  </li>
+  <li class="button"><div class="parent three">
+	  <span  class='fakeanchor'  >History</span>
+	  <div class="dropdown">
+	      <ul id='dinHist'>
+			  <li style="z-index: 10;">
+			  <span class='fakeanchor' >Empty History</span>
+			  </li>
+	     </ul>
+	  </div>
+	  
+    </div>
+  </li>
+
+  <li class="button"><div class="parent three">
+	  <span  class='fakeanchor' onclick='showHelpDiv()' >Help</span>
+    </div>
+  </li>
+  <li class="button"><div class="parent four">
+	  <span class='fakeanchor' onclick='showAboutDiv()' >About</span>
+    </div>
+  </li>
+</ul>
+<br class="brclear" />
+</div>  
+ </div>
+
+<div class='content' style="clear:both">
+<div id='swfform' >
+ <form action="" onsubmit="checkDomain();">
+   <b>Flash Movie&nbsp;&nbsp;</b><input class='input' name="swfurl" style="width: 466px" id="swfurl" type="text" >
+  <!-- <select name='swfurl'><option value='p.swf'>player.swf</select> -->
+   <input class='submit' type='submit' value='Load'>
+ </form>
+  <b> Query Object </b><input class='input'  type='text' id='object' style="width: 466px"  ><input type='button' class='submit' value='Query' onclick='getObject(this,document.getElementById("object").value)'>
+</div>
+
+<!-- the div for Swf-->
+<div class='infos'>
+
+<div id="flashcontent">
+  <b>You need to insert the swf URL which is hosted on your server
+    in the input form above</b>
+</div>
+
+
+<!-- Information Elements -->
+<div id="flashTest" ></div>
+<span id='SwfInfo'>
+
+ <!-- 
+ <div id="info"> <div class='info' >
+ <h3>Undefined Root Variables </h3>
+ <div id="_root" ></div>
+ </div> -->
+
+ <div class='info' style='overflow: hidden;' >
+   <h3>Undefined Variables</h3>
+   <select id="_global" multiple="multiple"><option class='custom' value='_url' >_url</option></select>
+ </div>
+
+ <!-- 
+ <div class='info' >
+ <h3>Undefined Level Variables</h3>
+ <div id="_level1" ></div>
+ </div>
+  -->
+ <div id="Variablesdiv" class='info' style='width: 200px' >
+   <h3>SWF Instantiated Variables </h3>
+   <div id="Variables" ></div>
+ </div>
+ <div id="Errorsdiv" class='info' >
+   <h3>Js/SWF Errors: </h3>
+   <div id="Errors" ></div>
+ </div>
+ <div id='Xssdiv' class='info' style='display: none' >
+   <h3 >XSS</h3>
+     <div class="progress" style='right 0px;float:right;' id="pe3"><span></span>0%</div>
+ <span style='right: 0'><input type='image' src='' value='start' onclick="goXss()">
+ <input type='image' src='' value='stop' onclick="clearInterval(clearit);setProgressBar(100)"> </span>
+   <div id="Xss" ></div>
+ </div>
+ <div class='info' id='snapshot' style='float:left;width: 564px;' >
+  <h3>SnapShot</h3>
+  <div id="Infos"></div>
+ </div>
+</span>
+</div>
+<span id='debug' style='display: none'>
+<div class='info'  style='clear:both; border: solid 1px;width: 969px;'>
+<h3>Log</h3>
+<div id="Debug"></div>
+</div>
+</span>
+<div style="clear: both" id="flashcontent2"></div>
+</div>
+<div id="TB_overlay" onclick='hideInfoDiv()' style="height: 1295px; width: 1009px;display:none"/>
+</div>
+<div id="TB_window" style="height: 400px;width: 330px; left: 347px; top: 108px;overflow:auto; display: none">
+</div>
+<div id='___tooltip' style='display:none;background-color: #ffffff;padding: 4px;border: solid 1px;position: absolute'></div>
+<!-- <div 'display:none'>
+<select id="AttackPatterns" multiple="multiple"><option value='' ></option></select>
+<select id="customAttacks" multiple="multiple"><option value='' ></option></select>
+<select id="customPars" multiple="multiple"><option value='' ></option></select>
+</div> -->
+<div >Latest Release 30th November 2007</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+Add Redirect url Attack
+Search for custom string in objects.
+Detailed Report : something like:
+	 Report for:
+	 [dd/mm/yy hh:mm:ss] 
+	 Tested parameters:
+	 1.
+	 2.
+	 ..
+	 Attack patterns: 
+	 1.
+	 2.
+	 ..
+
+	 SWF Intruder Configuration:
+
+	 Vulnerable parameters [attack pattern] Link:
+	 1.
+	 2.
+	 3.
+
+Documentation (most Videos & less written).
+

@@ -1,0 +1,197 @@
+ ul {
+ 	 margin: 0px;
+ 	 padding: 0px;
+ }
+ ul#tree ul {
+ 	 padding-left: 1em;
+ 	 _padding-left: 0em;
+ 	 _margin-left: 1em;
+ }
+ .Elem:hover {
+ 	 background-color: lightgrey;
+ }
+ ul, li { padding: 0; margin: 0; list-style: none;}
+
+
+ body {
+   background-color: #eeeeee;
+   font:     .65em/1.3em verdana,arial,helvetica,sans-serif;
+ }
+
+ #info {
+   width:    500px;
+   overflow: auto;
+ }
+
+ .explore:hover{
+   background-color: lightgrey;
+   cursor:   crosshair; 
+ }
+ .content{
+   clear: both;
+   
+   margin:   15px 2px;
+ }
+ .fakeanchor{ 
+   cursor:   pointer; 
+ }
+
+ #flashcontent {
+   border:   solid 1px #000;
+   background: white;
+   width:    400px;
+   height:   400px;
+   float:    left;
+   margin:   15px 2px;
+   z-index: 0;
+ }
+
+ div.info{
+   float:    left;
+   width:    170px;
+   height:   200px;
+   overflow: auto;
+   background-color: white;
+   padding:  5px 5px 5px 5px;
+   border:   solid 1px;
+ }
+
+ div.info h3{
+   background-color: #def;
+   border-bottom: solid 1px;
+   color: #004400;
+   margin:   0px 0px 0px 0px;
+ }
+ div.infos{
+ 	 width: 990px;
+ }
+ #_global	 {
+   border: solid 0px;
+   height:   170px;
+   width:   170px;
+   overflow: auto;
+   margin:   0px 0px 0px 0px;
+   padding:   0px 0px 0px 0px;
+
+ }
+ #_global option:hover   {
+   background-color: lightgrey;
+   border-bottom: solid 1px;
+   margin:   0px 0px 0px 0px;
+   width: 200px
+ }
+
+ span.item{
+   overflow: auto; 
+   float: left; 
+   padding:  5px 5px 5px 5px;
+   border:   solid 1px;
+   background-color: lightblue;
+ }
+
+ span.item:hover{
+   background-color: lightgrey;
+   cursor:   pointer; 
+ }
+
+ div.header{
+   clear: both;
+   margin:   5px 5px 5px 5px;
+   padding:  5px 5px 5px 5px;
+   
+ }
+
+ #swfform {
+   clear: both;
+   padding:  5px 5px 5px 5px;
+   margin:   5px 5px 5px 5px;
+ }
+
+ span#search {
+   border: solid 1px black;
+ }
+ .submit {
+   border: solid 1px black;
+   color: white;
+   background: #235;
+   margin: 3px;
+   width: 100px;
+ }
+
+ .input {
+   border: solid 1px black; 
+   margin: 3px;
+ }
+
+ #TB_overlay {
+   background-color:#000000;
+   left:0px;
+   opacity:0.6;
+   position:absolute;
+   top:0px;
+   z-index:110100 !important;
+ }
+ #TB_window {
+   background:#FFFFFF none repeat scroll 0%;
+   border:4px solid #445566;
+   color:#000000;
+   display:none;
+   position:absolute;
+   text-align:left;
+   z-index:110102 !important;
+ }
+ #TB_window {
+   color:#333333;
+   font-family:Arial,sans-serif;
+   font-size:100%;
+   font-size-adjust:none;
+   font-stretch:normal;
+   font-style:normal;
+   font-variant:normal;
+   font-weight:normal;
+   line-height:normal;
+ }
+ div.progress {
+   width: 60%;
+   border:1px solid #666;
+   text-align: center;
+   line-height: 1.3em;
+   margin-bottom: 1em
+ }
+
+ div.progress span {
+   display: block;height: 1.3em;
+   margin-bottom: -1.3em;
+   background: #ffffff
+ }
+
+ div#pe3 span {
+   background-image:url(../images/progressbar.gif);
+   width:0%;
+ }
+ .row {
+   width: 100%;
+   border-bottom: solid 1px;
+   margin-bottom:4px;
+   
+ }
+ .row:hover {
+    background-color: #aaaaaa;
+ }
+acronym{
+  font-weight: bold;
+  color: #777777;
+  margin: 2px;
+  border-bottom:1px dotted #aaaaaa; 
+
+}
+acronym:hover {
+ cursor: help;
+}
+ .custom:before{
+  content: "[C]"; 
+  font-weight: bold;
+  color: #777777;
+  margin: 2px;
+  border-bottom:1px dotted #aaaaaa; 
+ }
