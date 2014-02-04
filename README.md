@@ -1,7 +1,8 @@
-I have forked this project to address the current issues (the original version does not work anymore unfortunately) to have something to play with.
+<b>I have forked this project to address the current issues (the original version does not work anymore unfortunately) to have something to play with.</b>
 
 
-Original Readme:
+<b>Original Readme:</b>
+
 Foreword
 ========
 
