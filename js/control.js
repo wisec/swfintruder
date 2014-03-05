@@ -3,7 +3,7 @@
 **  Main functions for finding flaws in SWF Files
 **  
 **  Author: Stefano Di Paola (stefano.dipaola@mindedsecurity.com)
-**  Copyright: Minded Security © 2007
+**  Copyright: Minded Security Â© 2007
 **  License: GPL 2.0
 **
 ****************************************************/
@@ -268,7 +268,7 @@ Initialization stuff
 function init(){
  globalEl=$('Errors');
  initializeConfig();
- if(navigator.userAgent.indexOf("Firefox/2.")<0) {
+ if(navigator.userAgent.indexOf("Firefox")<0) {
     showOnlyFirefoxDiv();
  }
  if(showXssDiv){
