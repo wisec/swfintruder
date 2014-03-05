@@ -5,7 +5,7 @@
 ** 
 **  This file is part of SWF Intruder
 **  Author: Stefano Di Paola (stefano.dipaola@mindedsecurity.com)
-**  Copyright: Minded Security © 2007
+**  Copyright: Minded Security Â© 2007
 **  License: GPL 2.0
 */
  if(location.host=="localhost")
@@ -13,7 +13,8 @@
 
 // tests for globalStorage issues
 try{
-var storage  = globalStorage[location.host];
+	//var storage  = globalStorage[location.host];
+	var storage  = sessionStorage;
 }catch(r){
 var str="<div style='text-align: center; padding: 5px' onclick='hideInfoDiv()'><h2>Sorry! globalStorage issue</h2> </div><h4>First of all be sure that your FF version is greater than 2. </h4>"+
  "<h4>If so, we figured out that there could be three cases:</h4>"+
@@ -33,9 +34,11 @@ storage.setItem(key,value);
 
 }
 function getItem(key) {
- 
-      return  storage.getItem(key);
- 
+	this.value = function(){
+        return storage.getItem(key);
+    }
+    
+	return  storage.getItem(key);
 }
 
 function removeItem(key) {
