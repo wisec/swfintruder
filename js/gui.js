@@ -4,7 +4,7 @@
 **
 **  This file is part of SWF Intruder
 **  Author: Stefano Di Paola (stefano.dipaola@mindedsecurity.com)
-**  Copyright: Minded Security © 2007
+**  Copyright: Minded Security Â© 2007
 **  License: GPL 2.0
 **
 */
@@ -203,7 +203,7 @@ function reWriteTo(id,str){
 ** adds a new Undefined Parameter to the select list
 ** Return Value: void
 */
-function addVar(id,str,class){ 
+function addVar(id,str,classObj){ 
  
   try{
    opt=$(id).options;
@@ -213,8 +213,8 @@ function addVar(id,str,class){
   
    $(id).options[$(id).options.length] = new Option(str,str);
 
-   if(class!=undefined)
-      $(id).options[$(id).options.length-1].className=class;
+   if(classObj!=undefined)
+      $(id).options[$(id).options.length-1].className=classObj;
 
   }catch(e){dump(e+' '+id)}
 }
@@ -343,7 +343,7 @@ function showOkDiv(str){
 **
 */
 function showOnlyFirefoxDiv(str){
-  showInfoDiv("<div style='text-align: center; padding: 5px' onclick='hideInfoDiv()'><h2>Sorry! SWFIntruder is for Firefox 2.0 Only </h2><div style='text-align: center; width: 100%;'><span onclick='hideInfoDiv()' style='cursor: pointer;text-decoration: underline;font-weight: bold;' class='submit'>Close</span></div>");
+  showInfoDiv("<div style='text-align: center; padding: 5px' onclick='hideInfoDiv()'><h2>Sorry! SWFIntruder is for Firefox Only </h2><div style='text-align: center; width: 100%;'><span onclick='hideInfoDiv()' style='cursor: pointer;text-decoration: underline;font-weight: bold;' class='submit'>Close</span></div>");
 }
 
 /*******************
