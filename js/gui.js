@@ -4,7 +4,7 @@
 **
 **  This file is part of SWF Intruder
 **  Author: Stefano Di Paola (stefano.dipaola@mindedsecurity.com)
-**  Copyright: Minded Security Â© 2007
+**  Copyright: Minded Security © 2007
 **  License: GPL 2.0
 **
 */
@@ -296,7 +296,8 @@ function showGeneralConfigDiv(str){
   str+='<tr><td>Evil Site: </td><td><input class="input" id="evilsite" type="text" name="evilsite" value='+evilsite+'>'+"</td></tr>";
   str+='<tr><td><input type="checkbox" id="mini" onchange="miniSwf=this.checked" '+(miniSwf?"checked":"")+'></td><td>Use additional mini swf during Xss Tests (could minimize false negatives rate)</td></tr>';
   str+='<tr><td><input type="checkbox" id="alert" onchange="alertWhenFound=this.checked" '+(alertWhenFound?"checked":"")+'></td><td>set an alert box when SWF Intruder founds a XSS</td></tr>';
-  str+='</table></fieldset><input type="button"   onclick="hideInfoDiv()"  class="submit" value="Cancel" ><input type="button" onclick="miniSwf=($(\x27mini\x27).checked);setItem(\x27mini\x27,miniSwf);alertWhenFound=($(\x27alert\x27).checked);setItem(\x27alert\x27,alertWhenFound);evilsite=$(\x27evilsite\x27).value;setItem(\x27evilsite\x27,evilsite);seconds=$(\x27seconds\x27).value;setItem(\x27seconds\x27,seconds);showOkDiv(\x27Configuration Saved!\x27);" value="Save Config" class="submit"></div>';
+  str+='<tr><td><input type="checkbox" id="allVariables" onchange="useAllVariables=this.checked" '+(useAllVariables?"checked":"")+'></td><td>Use all the input variables</td></tr>';
+  str+='</table></fieldset><input type="button"   onclick="hideInfoDiv()"  class="submit" value="Cancel" ><input type="button" onclick="miniSwf=($(\x27mini\x27).checked);setItem(\x27mini\x27,miniSwf);alertWhenFound=($(\x27alert\x27).checked);setItem(\x27alert\x27,alertWhenFound);useAllVariables=($(\x27allVariables\x27).checked);setItem(\x27allVariables\x27,useAllVariables);evilsite=$(\x27evilsite\x27).value;setItem(\x27evilsite\x27,evilsite);seconds=$(\x27seconds\x27).value;setItem(\x27seconds\x27,seconds);showOkDiv(\x27Configuration Saved!\x27);loadAttackVector();" value="Save Config" class="submit"></div>';
   str="<div>"+str+"</div><div style='text-align: center; width: 100%;'><span onclick='hideInfoDiv()' style='cursor: pointer;text-decoration: underline;font-weight: bold;' class='submit'>Close</span></div>"
   showInfoDiv(str);
 }
@@ -400,14 +401,33 @@ function setProgressBar(val){
 */
 function goSwf(){
   if(getQueryParamValue("swfurl")!=''){
-    var so = new SWFObject("getVars.swf"+document.location.search, "getVars", "400", "400", "9", "#FFffff");
-      url=document.getElementById("swfurl").value;
-     
-      so.addParam("base", url);
+	var objID = "getVars";
+    
+	
+       url=document.getElementById("swfurl").value;
+	   
+       var attributes = {
+		  allowscriptaccess: "always",
+		  id: objID,
+		  name: objID,
+		  base: url,
+		  scale: "showAll",
+		  wmode: "transparent"
+		};
+		var params = {
+			allowscriptaccess: "always"
+		}
+
+		swfobject.embedSWF("getVars.swf"+document.location.search, "initSWF", "400", "400", "9.0.0", null,{},params,attributes);
+
+      /*
+	  var so = new SWFObject("getVars.swf"+document.location.search, objID, "400", "400", "9", "#FFffff");
+	  
+	  so.addParam("base", url);
       so.addParam("scale", "showAll");
       so.addParam("wmode", "transparent");
       so.write("flashcontent");
-      orisrc=document.getVars.src;
+	  //*/
+      orisrc=document[objID].src;
   }
 }
-

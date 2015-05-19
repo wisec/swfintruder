@@ -6,7 +6,7 @@
 **
 **  This file is part of SWF Intruder
 **  Author: Stefano Di Paola (stefano.dipaola@mindedsecurity.com)
-**  Copyright: Minded Security Â© 2007
+**  Copyright: Minded Security © 2007
 **  License: GPL 2.0
 */
 

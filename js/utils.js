@@ -16,9 +16,14 @@
 ** Return Value: boolean 
 */
 function inarray( value ,arr ){
-  for(var i=0;i< arr.length;i++)
-   if( value.toSource()===arr[i].toSource())
-    return true;
+  for(var i=0;i< arr.length;i++){
+   // Changed by irsdl
+   /*if( value.toSource()===arr[i].toSource()){ */
+   if( JSON.stringify(value)===JSON.stringify(arr[i])){
+	return true;
+   }
+   
+  }
   return false;
 }
 
