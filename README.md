@@ -45,6 +45,6 @@ Moreover does help raise awareness around the subject of flash applications secu
 
 Reference to the Original Project
 =================================
-OWASP: http://www.owasp.org/index.php/Category:SWFIntruder
-Testing Flash Applications: http://www.owasp.org/images/8/8c/OWASPAppSec2007Milan_TestingFlashApplications.ppt
-Finding Vulnerabilities in Flash Applications: http://www.owasp.org/images/d/df/SanJose_AppSec2007_DiPaola.ppt
+- OWASP: http://www.owasp.org/index.php/Category:SWFIntruder
+- Testing Flash Applications: http://www.owasp.org/images/8/8c/OWASPAppSec2007Milan_TestingFlashApplications.ppt
+- Finding Vulnerabilities in Flash Applications: http://www.owasp.org/images/d/df/SanJose_AppSec2007_DiPaola.ppt
