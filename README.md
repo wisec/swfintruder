@@ -36,7 +36,7 @@ This application only shows the result of loading the SWF files by using differe
 Note: This application and other similar SWF scanners are only good for a fast testing when a securit yassessment time is limited. Remember to perform a manual assessment on the decompiled version of the SWF files to find as many issues as possible. 
 
 Goals
------
+=====
 
 SWFIntruder purpose is to analyze a Flash application for version >= 8 and to help check in a semi automated fashion the presence of security issues like Cross Site Scripting and Cross Site Flashing.
 
@@ -44,7 +44,7 @@ Moreover does help raise awareness around the subject of flash applications secu
  
 
 Reference to the Original Project
-----------------
-  [OWASP]: http://www.owasp.org/index.php/Category:SWFIntruder
-  [Testing Flash Applications]: http://www.owasp.org/images/8/8c/OWASPAppSec2007Milan_TestingFlashApplications.ppt
-  [Finding Vulnerabilities in Flash Applications]: http://www.owasp.org/images/d/df/SanJose_AppSec2007_DiPaola.ppt
+=================================
+OWASP: http://www.owasp.org/index.php/Category:SWFIntruder
+Testing Flash Applications: http://www.owasp.org/images/8/8c/OWASPAppSec2007Milan_TestingFlashApplications.ppt
+Finding Vulnerabilities in Flash Applications: http://www.owasp.org/images/d/df/SanJose_AppSec2007_DiPaola.ppt
