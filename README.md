@@ -1,4 +1,5 @@
-<b>I have forked this project to address the current issues (the original version does not work anymore unfortunately) to have something to play with.</b>
+<b>I have forked this project to address the current issues (the original version does not work anymore)</b>
+FlashVars in AS3 can be found by using the FlashBang (https://github.com/cure53/flashbang) project or by decompiling the SWF files.
 
 
 <b>Original Readme:</b>
