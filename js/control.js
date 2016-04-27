@@ -79,6 +79,7 @@ function writeSWF(url, where) {
 		
 	swfobject.embedSWF(url, objID, "400", "400", "9.0.0", null,{},{},attributes);
 	
+	setTimeout('removeSWFObject("'+objID+'")',seconds*1000);
 	/*
     var so = new SWFObject(url, objID, "400", "400", "9", "#eeeeee");
     url = $("swfurl").value;
@@ -151,6 +152,7 @@ function checkXss() {
 			};
 			
 		swfobject.embedSWF(url, objID, "400", "400", "9.0.0", null,{},{},attributes);
+		setTimeout('removeSWFObject("'+objID+'")',seconds*1000);
 		/*
         var so = new SWFObject(url, objID, "30", "30", "9", "#ffffff");
         so.addParam("base", url.substr(0, url.indexOf('?')));
@@ -170,6 +172,9 @@ function checkXss() {
 
 }
 
+function removeSWFObject(objID){
+	document.getElementById(objID).parentNode.removeChild(document.getElementById(objID));
+}
 /******************************************
  ** void writeSWF(SwfUrl)
  ** Facility Function which loads an SWF to
@@ -448,7 +453,7 @@ function init() {
         $("debug").style.display = "none";
     // showHelpDiv();
     var url = unescape(getQueryParamValue("swfurl"));
-    $("swfurl").value = ((url != '') ? unescape(url) : location.protocol + '//' + location.host + '/');
+    $("swfurl").value = ((url != '') ? unescape(url) : location.href.substring(0, location.href.lastIndexOf('/'))+"/testSWF/");
 
     setItem("swfurl", $("swfurl").value);
     url = unescape(url);

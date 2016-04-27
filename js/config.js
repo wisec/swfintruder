@@ -9,8 +9,14 @@
 **
 */
 
-var evilsite="//attacker.com/payloads/";
-
+var evilsite= location.href.substring(0, location.href.lastIndexOf('/'))+ "/payloads/";
+var seconds=5; // Time to wait for SWF to be loaded while testing for XSS.
+var alertWhenFound=true; // if true popup an alert box when Xss is found
+var miniSwf=true; // improve detection of Xss by using direct embed for swf
+var showXssDiv=true; // improve detection of Xss by using direct embed for swf
+var showDebugDiv=false; // improve detection of Xss by using direct embed for swf
+var maxHistoryElements=3;
+var useAllVariables=false; // use all the variables that are defined in the Variables panel with their default values
 
 /************
 **  Attack Patterns.
@@ -114,10 +120,3 @@ function loadAttackVector(){
 };
 loadAttackVector();
 
-var seconds=100; // Time to wait for SWF to be loaded while testing for XSS.
-var alertWhenFound=true; // if true popup an alert box when Xss is found
-var miniSwf=true; // improve detection of Xss by using direct embed for swf
-var showXssDiv=true; // improve detection of Xss by using direct embed for swf
-var showDebugDiv=false; // improve detection of Xss by using direct embed for swf
-var maxHistoryElements=3;
-var useAllVariables=false; // use all the variables that are defined in the Variables panel with their default values
