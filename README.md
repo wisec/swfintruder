@@ -29,7 +29,7 @@ This application and its original version are vulnerable to XSS attacks. Therefo
 
 This new version has been tested in Google Chrome or Mozilla Firefox and does not work in Internet Explorer.
 
-It shows all the loaded Flash files at the moment and a removal process has not been implemented yet. Therefore it can be very slow in the browser and it may crash the Flash plugin. In addition, several features of this application has not been updated since the initial version and can be buggy.
+Several features of this application has not been updated since the initial version and can be buggy.
 
 This application only shows the result of loading the SWF files by using different vectors. Therefore, issues that needs user interaction such as clicking a link still needs to be verified manually.
 
