@@ -1,0 +1,1 @@
+alert('XSS Here! - look at the JS file URL to find the vulnerable input');

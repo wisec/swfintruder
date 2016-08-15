@@ -28,26 +28,26 @@ function initializeConfig(){
 // Attack Config 
 // removeItem("_customAttackPatterns" ) 
  if( getItem("_customAttackPatterns")!=null)
-  _customAttackPatterns=JSON.parse((getItem("_customAttackPatterns")).value);
+  _customAttackPatterns=JSON.parse((getItem("_customAttackPatterns")));
 
  if( getItem("_customAttackPatternsChecked")!=null)
-  _customAttackPatternsChecked=JSON.parse((getItem("_customAttackPatternsChecked")).value);
+  _customAttackPatternsChecked=JSON.parse((getItem("_customAttackPatternsChecked")));
  else
   for(var e=0;e< _customAttackPatterns.length;e++)
    _customAttackPatternsChecked[e]=true;
   
  if( getItem("_attackPatternsChecked")!=null)
-  _attackPatternsChecked=JSON.parse((getItem("_attackPatternsChecked")).value);
+  _attackPatternsChecked=JSON.parse((getItem("_attackPatternsChecked")));
  else
   for(var e=0;e<attackVector.length;e++)
    _attackPatternsChecked[e]=true;
   
 // Parameters Config
  if( getItem("_customValuedParameters")!=null)
-  _customValuedParameters=JSON.parse((getItem("_customValuedParameters")).value);
+  _customValuedParameters=JSON.parse((getItem("_customValuedParameters")));
 
  if( getItem("_customUndefParameters")!=null)
-  _customUndefParameters=JSON.parse((getItem("_customUndefParameters")).value);
+  _customUndefParameters=JSON.parse((getItem("_customUndefParameters")));
  
  if(_customUndefParameters.length>0)
   for(var e=0;e< _customUndefParameters.length;e++){
@@ -55,29 +55,29 @@ function initializeConfig(){
     addToArray(_customUndefParameters[e], _globalVars)
   }
  if( getItem("alert")!=null)
-  alertWhenFound = parseBool((getItem("alert")).value);
+  alertWhenFound = parseBool((getItem("alert")));
    
  if( getItem("mini")!=null)
-  miniSwf =  parseBool((getItem("mini")).value);
+  miniSwf =  parseBool((getItem("mini")));
 
  if( getItem("swfurl")!=null)
-  $("swfurl").value = unescape((getItem("swfurl")).value);
+  $("swfurl").value = unescape((getItem("swfurl")));
 
  if( getItem("xssLayout")!=null)
-   showXssDiv =  parseBool((getItem("xssLayout")).value);
+   showXssDiv =  parseBool((getItem("xssLayout")));
 
  if( getItem("debugLayout")!=null)
-   showDebugDiv =  parseBool((getItem("debugLayout")).value);
+   showDebugDiv =  parseBool((getItem("debugLayout")));
  
 // Standard config
  if(getItem("seconds")!=null)
-  seconds=((getItem("seconds")).value)*1;
+  seconds=((getItem("seconds")))*1;
 
  if(getItem("evilsite")!=null)
-  evilsite=(getItem("evilsite")).value;
+  evilsite=(getItem("evilsite"));
 
  if(getItem("history")!=null)
-   historyArr=JSON.parse(getItem("history").value);
+   historyArr=JSON.parse(getItem("history"));
 
 }
 
